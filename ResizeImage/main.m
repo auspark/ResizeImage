@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 
-
-
 void saveImage_png(NSImage *image,NSString *name){
 //    NSImage *image = [[NSImage alloc] initWithContentsOfFile:@"filePath"];
     NSData *data = [image TIFFRepresentation];
@@ -22,6 +20,7 @@ void saveImage_png(NSImage *image,NSString *name){
     // pngData 写入磁盘 or 其他处理
     [pngData writeToFile:name atomically:YES];
 }
+
 
 NSImage * zoom(NSImage *image,CGFloat width){
     //        NSImage *image = ...
