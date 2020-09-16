@@ -57,11 +57,12 @@ int main(int argc, const char * argv[]) {
         NSString *toolName = [toolURL lastPathComponent];
         NSString *file = [NSString stringWithUTF8String:argv[1]];
         if ([file isEqualToString:@"-h"]) {
-            NSLog(@"Usage:%@ image_file_path",toolName);
+            printf("Usage: %s Image_file_path\n",toolName.UTF8String);
             return 0;
         }
         if (![[NSFileManager defaultManager] fileExistsAtPath:file]) {
-            NSLog(@"the file don't exists:%@",file);
+            printf("the file don't exists:%s\n",file.UTF8String);
+//            NSLog(@"the file don't exists:%@",file);
             return -2;
         }
         NSURL *fileURL = [NSURL URLWithString:file];
@@ -74,7 +75,7 @@ int main(int argc, const char * argv[]) {
             NSImage *small = zoom(image, i);
             NSString *savePath = [NSString stringWithFormat:@"%@/%@_%dx%d.png",path,name,i*2,i*2];
             NSURL *saveURL = [NSURL URLWithString:savePath];
-            NSLog(@"create: %@",saveURL.lastPathComponent);
+            printf("create: %s",saveURL.lastPathComponent.UTF8String);
             saveImage_png(small, savePath);
         }
     }
