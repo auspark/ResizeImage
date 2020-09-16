@@ -18,7 +18,14 @@ void saveImage_png(NSImage *image,NSString *name){
     // rep.size = CGSizeMake(width, width);
     NSData *pngData = [rep representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
     // pngData 写入磁盘 or 其他处理
-    [pngData writeToFile:name atomically:YES];
+    /*
+     - (BOOL)writeToFile:(NSString *)path atomically:(BOOL)useAuxiliaryFile;
+     这个参数为NO和YES都能写入文件
+     YES:保证文件的写入原子性,
+         会先创建一个临时文件,直到文件内容写入成功再导入到目标文件里.
+     NO:则直接写入目标文件里.
+     */
+    [pngData writeToFile:name atomically:NO];
 }
 
 
