@@ -49,7 +49,8 @@ int main(int argc, const char * argv[]) {
         // insert code here...
 //        NSLog(@"Hello, World!");
         if (argc!=2){
-            NSLog(@"Just Need 1 argument: image_file_path");
+//            NSLog(@"Just Need 1 argument: image_file_path");
+            printf("Just Need 1 argument: image_file_path\n");
             return -1;
         }
         NSString *toolpath = [NSString stringWithUTF8String:argv[0]];
@@ -75,7 +76,7 @@ int main(int argc, const char * argv[]) {
             NSImage *small = zoom(image, i);
             NSString *savePath = [NSString stringWithFormat:@"%@/%@_%dx%d.png",path,name,i*2,i*2];
             NSURL *saveURL = [NSURL URLWithString:savePath];
-            printf("create: %s",saveURL.lastPathComponent.UTF8String);
+            printf("create: %s\n",saveURL.lastPathComponent.UTF8String);
             saveImage_png(small, savePath);
         }
     }
