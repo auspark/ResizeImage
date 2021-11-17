@@ -7,10 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31435EAE254124B20066E08F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31435EAD254124B20066E08F /* main.m */; };
 		31C67967248F84420093000D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C67966248F84420093000D /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		31435EA9254124B20066E08F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		31C67961248F84420093000D /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -23,11 +33,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		31435EAB254124B20066E08F /* idcardpic */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = idcardpic; sourceTree = BUILT_PRODUCTS_DIR; };
+		31435EAD254124B20066E08F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		31C67963248F84420093000D /* ResizeImage */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ResizeImage; sourceTree = BUILT_PRODUCTS_DIR; };
 		31C67966248F84420093000D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		31435EA8254124B20066E08F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31C67960248F84420093000D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -38,10 +57,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31435EAC254124B20066E08F /* idcardpic */ = {
+			isa = PBXGroup;
+			children = (
+				31435EAD254124B20066E08F /* main.m */,
+			);
+			path = idcardpic;
+			sourceTree = "<group>";
+		};
 		31C6795A248F84420093000D = {
 			isa = PBXGroup;
 			children = (
 				31C67965248F84420093000D /* ResizeImage */,
+				31435EAC254124B20066E08F /* idcardpic */,
 				31C67964248F84420093000D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				31C67963248F84420093000D /* ResizeImage */,
+				31435EAB254124B20066E08F /* idcardpic */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +94,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		31435EAA254124B20066E08F /* idcardpic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31435EB1254124B20066E08F /* Build configuration list for PBXNativeTarget "idcardpic" */;
+			buildPhases = (
+				31435EA7254124B20066E08F /* Sources */,
+				31435EA8254124B20066E08F /* Frameworks */,
+				31435EA9254124B20066E08F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = idcardpic;
+			productName = idcardpic;
+			productReference = 31435EAB254124B20066E08F /* idcardpic */;
+			productType = "com.apple.product-type.tool";
+		};
 		31C67962248F84420093000D /* ResizeImage */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31C6796A248F84420093000D /* Build configuration list for PBXNativeTarget "ResizeImage" */;
@@ -91,6 +137,9 @@
 				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = Jerry.Yang;
 				TargetAttributes = {
+					31435EAA254124B20066E08F = {
+						CreatedOnToolsVersion = 11.0;
+					};
 					31C67962248F84420093000D = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -110,11 +159,20 @@
 			projectRoot = "";
 			targets = (
 				31C67962248F84420093000D /* ResizeImage */,
+				31435EAA254124B20066E08F /* idcardpic */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		31435EA7254124B20066E08F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31435EAE254124B20066E08F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		31C6795F248F84420093000D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,6 +184,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		31435EAF254124B20066E08F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		31435EB0254124B20066E08F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		31C67968248F84420093000D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -256,6 +330,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		31435EB1254124B20066E08F /* Build configuration list for PBXNativeTarget "idcardpic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31435EAF254124B20066E08F /* Debug */,
+				31435EB0254124B20066E08F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		31C6795E248F84420093000D /* Build configuration list for PBXProject "ResizeImage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

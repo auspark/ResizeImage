@@ -55,9 +55,11 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
 //        NSLog(@"Hello, World!");
-        if (argc!=2){
+        if (argc<2 || argc>3){
 //            NSLog(@"Just Need 1 argument: image_file_path");
-            printf("Just Need 1 argument: image_file_path\n");
+            printf("when ther is 1 argument, appicon   : image_file_path\n");
+            printf("when ther is 2 argument, image sets: image_file_path base_pixels\n");
+            printf("use option -h can get more information\n");
             return -1;
         }
         NSString *toolpath = [NSString stringWithUTF8String:argv[0]];
@@ -65,7 +67,7 @@ int main(int argc, const char * argv[]) {
         NSString *toolName = [toolURL lastPathComponent];
         NSString *file = [NSString stringWithUTF8String:argv[1]];
         if ([file isEqualToString:@"-h"]) {
-            printf("Usage: %s Image_file_path\n",toolName.UTF8String);
+            printf("Usage: %s Image_file_path [base_pixels]\n",toolName.UTF8String);
             return 0;
         }
         if (![[NSFileManager defaultManager] fileExistsAtPath:file]) {
@@ -79,12 +81,29 @@ int main(int argc, const char * argv[]) {
 //        NSString *extention = [fileURL pathExtension];
         NSString *name=[[fileURL URLByDeletingPathExtension] lastPathComponent];
         NSImage *image = [[NSImage alloc] initWithContentsOfFile:file];
-        for (int i=8; i<1024; i=i*2) {
-            NSImage *small = zoom(image, i);
-            NSString *savePath = [NSString stringWithFormat:@"%@/%@_%dx%d.png",path,name,i*2,i*2];
-            NSURL *saveURL = [NSURL URLWithString:savePath];
-            printf("create: %s\n",saveURL.lastPathComponent.UTF8String);
-            saveImage_png(small, savePath);
+        if (argc==2){
+            for (int i=8; i<1024; i=i*2) {
+                NSImage *small = zoom(image, i);
+                NSString *savePath = [NSString stringWithFormat:@"%@/%@_%dx%d.png",path,name,i*2,i*2];
+                NSURL *saveURL = [NSURL URLWithString:savePath];
+                printf("create: %s\n",saveURL.lastPathComponent.UTF8String);
+                saveImage_png(small, savePath);
+            }
+        }
+        else if (argc==3){
+            NSString *base = [NSString stringWithUTF8String:argv[2]];
+            if (base && base.length>0 && [base stringByReplacingOccurrencesOfString:@" " withString:@""]>0){
+                float b = [base floatValue];
+                float halfb = b/2;
+                for (int i=1;i<=3;i++){
+                    float s=halfb*i;
+                    NSImage *small = zoom(image, s);
+                    NSString *savePath = [NSString stringWithFormat:@"%@/%@_icon_%dx%d.png",path,name,(int)b*i,(int)b*i];
+                    NSURL *saveURL = [NSURL URLWithString:savePath];
+                    printf("create: %s\n",saveURL.lastPathComponent.UTF8String);
+                    saveImage_png(small, savePath);
+                }
+            }
         }
     }
     return 0;
